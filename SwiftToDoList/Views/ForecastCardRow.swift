@@ -8,7 +8,38 @@
 import SwiftUI
 
 struct ForecastCardRow: View {
-
+    let forecasts: [Forecast]
+    
+    var body: some View {
+        HStack(spacing: 10) {
+            ForEach(Array(forecasts.prefix(3).enumerated()), id: \.1.id) { _, forecast in
+                VStack(spacing: 10) {
+                    Text(dayLabel(for: forecast.date))
+                        .bold()
+                    
+                    Text("\(Int(forecast.temperature))°C")
+                        .bold()
+                    
+                    Image(systemName: forecast.icon.systemName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                }
+                .padding(.horizontal, 30)
+                .padding(.vertical, 20)
+                .background(Color(.systemGray6).opacity(0.4))
+                .cornerRadius(20)
+            }
+        }
+        .padding(.horizontal)
+        .padding(.top, 10)
+    }
+    
+    private func dayLabel(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E"
+        return formatter.string(from: date)
+    }
 }
 
 

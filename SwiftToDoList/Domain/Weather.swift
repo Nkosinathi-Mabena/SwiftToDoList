@@ -1,0 +1,29 @@
+//
+//  Weather.swift
+//  ToDoList
+//
+//  Created by Nathi Mabena on 2025/08/20.
+//
+
+import Foundation
+
+struct Weather{
+    let location: String
+    let temperature: Double
+    let description: String
+    let date: Date
+    let sunrise: Date
+    let sunset: Date
+    let icon: WeatherIcon
+}
+
+struct Forecast: Identifiable {
+    let id = UUID()
+    let temperature: Double
+    let description: String
+    let date: Date
+    let sunrise: Date
+    let sunset: Date
+    let icon: WeatherIcon
+}
+

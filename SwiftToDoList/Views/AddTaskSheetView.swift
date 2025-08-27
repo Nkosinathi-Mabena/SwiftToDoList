@@ -5,14 +5,6 @@
 //  Created by Nathi Mabena on 2025/08/27.
 //
 
-
-//
-//  AddTaskSheet.swift
-//  ToDoList
-//
-//  Created by Nathi Mabena on 2025/08/11.
-//
-
 import SwiftUI
 
 struct AddTaskSheetView: View {

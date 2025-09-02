@@ -13,7 +13,7 @@ func formattedDate(_ date: Date) -> String {
     return formatter.string(from: date)
 }
 
-func formattedTime(_ date: Date) -> String {
+func formattedTime(_ date: Date) -> String { // printing Dates as strings.
     let formatter = DateFormatter()
     formatter.timeStyle = .short
     return formatter.string(from: date)

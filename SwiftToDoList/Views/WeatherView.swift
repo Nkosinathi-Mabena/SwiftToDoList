@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct WeatherView: View {
-    @StateObject private var viewModel = WeatherViewModel(repository: WeatherRepository())
-    @StateObject private var locationManager = LocationManager()
+    @StateObject private var viewModel = WeatherViewModel(repository: WeatherRepository(),locationManager: LocationManager())
     
     var body: some View {
         VStack(spacing: 20) {
@@ -37,14 +36,6 @@ struct WeatherView: View {
         }
         .padding(.horizontal)
         .ignoresSafeArea(.keyboard, edges: .bottom) // still respect tab bar
-        .onReceive(locationManager.$lastLocation.compactMap { $0 }) { location in
-            Task {
-                await viewModel.loadWeather(
-                    lat: location.coordinate.latitude,
-                    lon: location.coordinate.longitude
-                )
-            }
-        }
     }
 }
 

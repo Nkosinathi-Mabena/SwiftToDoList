@@ -49,7 +49,7 @@ struct ForecastResponse: Codable {
         let sunset: String
     }
     
-    func toDomain() -> [Forecast] {
+    func toForecast() -> [Forecast] {
         forecast.forecastday.map { item in
             let isToday = Calendar.current.isDate(
                 Date(timeIntervalSince1970: item.dateEpoch),
@@ -85,7 +85,7 @@ struct ForecastResponse: Codable {
         )
     }
     
-    private func parseTime(_ time: String) -> Date {
+    private func parseTime(_ time: String) -> Date { //reading strings into Dates
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX") // this will ensure the formatter works consistently regardless of the users device region or language setting
         

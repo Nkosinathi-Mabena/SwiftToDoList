@@ -35,7 +35,7 @@ final class WeatherRepository: WeatherRepositoryProtocol {
             throw URLError(.cannotParseResponse)
         }
         
-        let forecastDays = decoded.toDomain()
+        let forecastDays = decoded.toForecast()
         
         return (todayWeather, forecastDays)
     }

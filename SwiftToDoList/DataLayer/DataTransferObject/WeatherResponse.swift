@@ -36,7 +36,8 @@ struct WeatherResponse: Codable {
             date: Date(timeIntervalSince1970: location.localtime_epoch),
             sunrise: parseTime(current.sunrise),
             sunset: parseTime(current.sunset),
-            icon: WeatherIconMapper.mapIcon(from: current.condition.icon))
+            icon:current.condition.icon
+        )
     }
     
     private func parseTime(_ time: String?) -> Date { //Convert

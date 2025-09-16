@@ -14,7 +14,7 @@ struct Weather{
     let date: Date
     let sunrise: Date
     let sunset: Date
-    let icon: WeatherIcon
+    let icon: String
 }
 
 struct Forecast: Identifiable {
@@ -24,6 +24,6 @@ struct Forecast: Identifiable {
     let date: Date
     let sunrise: Date
     let sunset: Date
-    let icon: WeatherIcon
+    let icon: String
 }
 

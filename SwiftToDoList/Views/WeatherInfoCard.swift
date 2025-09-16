@@ -32,10 +32,25 @@ struct WeatherInfoCard: View {
             }
             .padding()
             
-            Image(systemName: icon)
-                .resizable()
-                .scaledToFit()
-                .frame(height: UIScreen.main.bounds.height * 0.2)
+            AsyncImage(url: URL(string: icon)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                        .frame(height: UIScreen.main.bounds.height * 0.2)
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: UIScreen.main.bounds.height * 0.2)
+                case .failure:
+                    Image(systemName: "questionmark.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: UIScreen.main.bounds.height * 0.2)
+                @unknown default:
+                    EmptyView()
+                }
+            }
             
             Text(temperature)
                 .font(.system(size: 50))

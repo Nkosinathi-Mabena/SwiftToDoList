@@ -15,7 +15,7 @@ struct WeatherView: View {
             if let weather = viewModel.currentWeather {
                 WeatherInfoCard(
                     location: weather.location,
-                    icon: weather.icon.systemName,
+                    icon: weather.icon,
                     temperature: "\(Int(weather.temperature))°C",
                     description: weather.description,
                     date: formattedDate(weather.date),
@@ -32,7 +32,7 @@ struct WeatherView: View {
             }
 
             ForecastCardRow(forecasts: viewModel.forecast)
-                .padding(.bottom, 32) // push it above tab bar
+                .padding(.bottom, 32)
         }
         .padding(.horizontal)
         .ignoresSafeArea(.keyboard, edges: .bottom) // still respect tab bar

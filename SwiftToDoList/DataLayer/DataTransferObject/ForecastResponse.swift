@@ -57,12 +57,12 @@ struct ForecastResponse: Codable {
             )
             
             return Forecast(
-                temperature: isToday ? current.tempC : item.day.maxtempC,
+                temperature: isToday ? current.tempC : item.day.avgtempC,
                 description: item.day.condition.text,
                 date: Date(timeIntervalSince1970: item.dateEpoch),
                 sunrise: parseTime(item.astro.sunrise),
                 sunset: parseTime(item.astro.sunset),
-                icon: WeatherIconMapper.mapIcon(from: item.day.condition.icon)
+                icon:isToday ? "https:\(current.condition.icon)": "https:\(item.day.condition.icon)"
             )
         }
     }
@@ -81,7 +81,7 @@ struct ForecastResponse: Codable {
             date: Date(timeIntervalSince1970: current.lastUpdatedEpoch),
             sunrise: parseTime(today.astro.sunrise),
             sunset: parseTime(today.astro.sunset),
-            icon: WeatherIconMapper.mapIcon(from: current.condition.icon)
+            icon: "https:\(current.condition.icon)"
         )
     }
     

@@ -26,7 +26,6 @@ struct SegmentsCard: View {
                     .foregroundColor(.gray)
                     .fontWeight(.heavy)
                     .lineLimit(1)          // only 1 line
-                    .minimumScaleFactor(0.8)
             }
             
             Spacer()

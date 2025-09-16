@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import CoreLocation
 
 @MainActor
 final class WeatherViewModel: ObservableObject {
@@ -15,9 +17,27 @@ final class WeatherViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
 
     private let repository: WeatherRepositoryProtocol
+    private let locationManager: LocationManager
+    private var cancellables = Set<AnyCancellable>()
     
-    init(repository: WeatherRepositoryProtocol) {
+    init(repository: WeatherRepositoryProtocol, locationManager: LocationManager) {
         self.repository = repository
+        self.locationManager = locationManager
+        bindLocationUpdates()
+    }
+    
+    private func bindLocationUpdates() {
+        locationManager.$lastLocation
+            .compactMap { $0 }
+            .sink { [weak self] location in
+                Task {
+                    await self?.loadWeather(
+                        lat: location.coordinate.latitude,
+                        lon: location.coordinate.longitude
+                    )
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func loadWeather(lat: Double, lon: Double) async {

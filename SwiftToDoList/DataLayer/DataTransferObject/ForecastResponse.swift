@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct ForecastResponse: Codable {
     let location: Location
     let current: Current
@@ -50,10 +49,43 @@ struct ForecastResponse: Codable {
         let sunset: String
     }
     
+    func toForecast() -> [Forecast] {
+        forecast.forecastday.map { item in
+            let isToday = Calendar.current.isDate(
+                Date(timeIntervalSince1970: item.dateEpoch),
+                inSameDayAs: Date()
+            )
+            
+            return Forecast(
+                temperature: isToday ? current.tempC : item.day.maxtempC,
+                description: item.day.condition.text,
+                date: Date(timeIntervalSince1970: item.dateEpoch),
+                sunrise: parseTime(item.astro.sunrise),
+                sunset: parseTime(item.astro.sunset),
+                icon: WeatherIconMapper.mapIcon(from: item.day.condition.icon)
+            )
+        }
+    }
     
-
+    func toWeather(for date: Date = Date()) -> Weather? {
+        guard let today = forecast.forecastday.first(where: {
+            Calendar.current.isDate(Date(timeIntervalSince1970: $0.dateEpoch), inSameDayAs: date)
+        }) else {
+            return nil
+        }
+        
+        return Weather(
+            location: location.name,
+            temperature: current.tempC,
+            description: current.condition.text,
+            date: Date(timeIntervalSince1970: current.lastUpdatedEpoch),
+            sunrise: parseTime(today.astro.sunrise),
+            sunset: parseTime(today.astro.sunset),
+            icon: WeatherIconMapper.mapIcon(from: current.condition.icon)
+        )
+    }
     
-    private func parseTime(_ time: String) -> Date {
+    private func parseTime(_ time: String) -> Date { //reading strings into Dates
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX") // this will ensure the formatter works consistently regardless of the users device region or language setting
         

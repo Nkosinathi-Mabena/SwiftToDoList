@@ -39,8 +39,6 @@ struct WeatherResponse: Codable {
             icon: WeatherIconMapper.mapIcon(from: current.condition.icon))
     }
     
-  
-    
     private func parseTime(_ time: String?) -> Date { //Convert
         guard let time = time else { return Date() }
         let formatter = DateFormatter()

@@ -16,9 +16,9 @@ struct ToDoView: View {
     @State private var showAddTaskSheet = false
     @State var selectedTask: Tasks?
     
-    init(repository: TaskRepositoryProtocol) {
-            _viewModel = StateObject(wrappedValue: TaskViewModel(repository: repository)) // this will create the viewmodel and pass the repository it received
-        }
+    init() {
+           _viewModel = StateObject(wrappedValue: DIContainer.shared.resolveTaskViewModel())
+       }
             
     var body: some View {
         ZStack(alignment: .top) {
@@ -112,6 +112,6 @@ struct ToDoView: View {
 
 struct ToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        ToDoView(repository: TaskRepository())
+        ToDoView()
     }
 }

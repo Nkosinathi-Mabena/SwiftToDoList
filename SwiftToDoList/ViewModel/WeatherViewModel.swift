@@ -14,7 +14,6 @@ enum ForecastViewType:String, CaseIterable{
     case hourly = "Hourly"
 }
 
-@MainActor
 final class WeatherViewModel: ObservableObject {
     @Published var currentWeather: Weather?
     @Published var forecast: [Forecast] = []
@@ -50,18 +49,28 @@ final class WeatherViewModel: ObservableObject {
     func loadWeather(lat: Double, lon: Double) async {
         print("📡 Loading weather for lat: \(lat), lon: \(lon)")
         
-        isLoading = true
-        errorMessage = nil
+        await MainActor.run {
+            isLoading = true
+            errorMessage = nil
+        }
+        
         do {
             let (currentResult, forecastResult, hourlyResult) = try await repository.fetchWeather(lat: lat, lon: lon)
 
-            self.currentWeather = currentResult
-            self.forecast = forecastResult
-            self.hourlyForecast = hourlyResult
+            await MainActor.run {
+                self.currentWeather = currentResult
+                self.forecast = forecastResult
+                self.hourlyForecast = hourlyResult
+            }
         } catch {
-            self.errorMessage = error.localizedDescription
+            await MainActor.run {
+                self.errorMessage = error.localizedDescription
+            }
         }
-        isLoading = false
+        
+        await MainActor.run {
+            isLoading = false
+        }
     }
 }
 

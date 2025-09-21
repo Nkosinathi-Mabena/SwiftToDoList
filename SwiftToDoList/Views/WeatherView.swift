@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct WeatherView: View {
-    @StateObject private var viewModel = WeatherViewModel(
-        repository: WeatherRepository(),
-        locationManager: LocationManager()
-    )
+    @StateObject private var viewModel : WeatherViewModel
+    
+    init() {
+        _viewModel = StateObject(wrappedValue: DIContainer.shared.resolveWeatherViewModel())
+    }
     
     var body: some View {
         ZStack(alignment: .top) {

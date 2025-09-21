@@ -9,12 +9,19 @@ import Foundation
 import Combine
 import CoreLocation
 
+enum ForecastViewType:String, CaseIterable{
+    case daily = "3-Day"
+    case hourly = "Hourly"
+}
+
 @MainActor
 final class WeatherViewModel: ObservableObject {
     @Published var currentWeather: Weather?
     @Published var forecast: [Forecast] = []
     @Published var isLoading = false
     @Published var errorMessage: String? = nil
+    @Published var hourlyForecast: [HourlyForecast] = [] //Array of HourlyForecast struct, starts empty, but when api makes call @Published variable will update ui with data
+    @Published var selectedView: ForecastViewType = .daily
 
     private let repository: WeatherRepositoryProtocol
     private let locationManager: LocationManager
@@ -46,10 +53,11 @@ final class WeatherViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         do {
-            let (currentResult, forecastResult) = try await repository.fetchWeather(lat: lat, lon: lon)
+            let (currentResult, forecastResult, hourlyResult) = try await repository.fetchWeather(lat: lat, lon: lon)
 
             self.currentWeather = currentResult
             self.forecast = forecastResult
+            self.hourlyForecast = hourlyResult
         } catch {
             self.errorMessage = error.localizedDescription
         }

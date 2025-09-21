@@ -27,3 +27,12 @@ struct Forecast: Identifiable {
     let icon: String
 }
 
+struct HourlyForecast {
+    let temperature: Double
+    let description: String
+    let time: Date
+    let icon: String
+}
+
+
+

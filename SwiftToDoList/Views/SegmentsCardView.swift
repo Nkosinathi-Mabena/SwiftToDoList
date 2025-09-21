@@ -19,13 +19,12 @@ struct SegmentsCard: View {
                     .font(.system(size:18))
                     .foregroundColor(.white)
                     .frame(width: 36, height: 36)
-                    .background(Circle().fill(Color.black))
+                    .background(Circle().fill(Color.black).opacity(0.3))
 
                 Text(title)
                     .font(.subheadline)
-                    .foregroundColor(.gray)
                     .fontWeight(.heavy)
-                    .lineLimit(1)          // only 1 line
+                    .lineLimit(1)          
             }
             
             Spacer()
@@ -38,7 +37,7 @@ struct SegmentsCard: View {
         }
         .padding()
         .frame(maxWidth: .infinity, minHeight: 80)
-        .background(Color(.systemGray6))
+        .background(Color(.systemGray2).opacity(0.4))
         .cornerRadius(12)
     }
 }

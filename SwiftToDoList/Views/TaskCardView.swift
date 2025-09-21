@@ -30,10 +30,10 @@ struct TaskCardView: View {
             
             VStack(alignment:.leading, spacing:5){
                 Text(task.description)
+                    .font(.custom("TrebuchetMS", size: 16))
                     .bold()
                 Text(DateFormatter.localizedString(from: task.dueDate, dateStyle: .medium, timeStyle: .none))
-                    .font(.system(size: 13))
-                    .foregroundColor(Color(.systemGray))
+                    .font(.custom("TrebuchetMS", size: 13))
                     .bold()
                 
             }
@@ -44,13 +44,13 @@ struct TaskCardView: View {
                 .font(.system(size: 12))
                 .foregroundColor(priorityColor)
                 .frame(width: 60, height: 24)
-                .background(priorityColor.opacity(0.1))
+                .background(priorityColor.opacity(0.3))
                 .cornerRadius(8)
                 .padding(.leading, 8)
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color(.systemGray6))
+        .background(Color(.systemGray2).opacity(0.4))
         .cornerRadius(12)
     }
 }

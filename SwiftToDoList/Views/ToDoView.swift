@@ -21,78 +21,91 @@ struct ToDoView: View {
         }
             
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-
-           HStack {
-                Text("Segments")
-                    .font(.largeTitle)
-                    .bold()
-                Spacer()
-               Button {
-                   showAddTaskSheet = true
-                   selectedTask = nil
-               } label: {
-                   Image(systemName: "plus")
-                       .font(.title2)
-               }
-            }
-            
-                VStack(spacing: 15) {
-                HStack(spacing: 15) {
-                    SegmentsCard(icon: "house.fill", title: "All Task", count: viewModel.taskCount(cardCount: .tasks))
-                        .onTapGesture { selectedCard = .tasks; selectedSegment = "Incompleted" }
-
-                    SegmentsCard(icon: "exclamationmark.triangle.fill", title: "Priority", count: viewModel.taskCount(cardCount: .priority))
-                        .onTapGesture { selectedCard = .priority; selectedSegment = "Low" }
-
-
-                }
-                HStack(spacing: 15) {
-                    SegmentsCard(icon: "hourglass.bottomhalf.fill", title: "Today", count: viewModel.taskCount(cardCount: .today))
-                        .onTapGesture { selectedCard = .today; selectedSegment = "Today's Tasks" }
-
-                    SegmentsCard(icon: "flag.fill", title: "Over Due", count: viewModel.taskCount(cardCount: .overdue))
-                        .onTapGesture { selectedCard = .overdue; selectedSegment = "Over Due" }
-                }
-            }
-            .navigationTitle("Segments")
-            
-            Text("Tasks")
-                .font(.largeTitle)
-                .bold()
-                .frame(alignment: .leading)
-            
-            if let selectedCard, !selectedCard.options.isEmpty{
-                Picker("Select", selection: $selectedSegment){
-                    ForEach(selectedCard.options, id: \.self){ option in // id: \.self provides key path since cardType doesn't conform to Identifialble
-                        Text(option).tag(option)
+        ZStack(alignment: .top) {
+            // Sky blue gradient background
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(red: 0.53, green: 0.61, blue: 0.98), // Light sky blue
+                    Color(red: 0.15, green: 0.1, blue: 0.5)  // Deeper sky blue
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            VStack(alignment: .leading, spacing: 10) {
+                
+                HStack {
+                    Text("Segments")
+                        .font(.custom("TrebuchetMS", size: 35))
+                        .bold()
+                    Spacer()
+                    Button {
+                        showAddTaskSheet = true
+                        selectedTask = nil
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.system(size:30))
+                            .foregroundColor(.white)
                     }
                 }
-                .pickerStyle(.segmented)
-            }
-            VStack {
-                ScrollView {
-                    LazyVStack(spacing: 13) {
-                        ForEach(viewModel.filteredTasks(selectedCard: selectedCard, selectedSegment: selectedSegment)) { task in
-                            TaskCardView(task: task, viewModel: viewModel)
-                                .onTapGesture{
-                                    selectedTask = task
-                                }
+                
+                VStack(spacing: 15) {
+                    HStack(spacing: 15) {
+                        SegmentsCard(icon: "house.fill", title: "All Task", count: viewModel.taskCount(cardCount: .tasks))
+                            .onTapGesture { selectedCard = .tasks; selectedSegment = "Incompleted" }
+                        
+                        SegmentsCard(icon: "exclamationmark.triangle.fill", title: "Priority", count: viewModel.taskCount(cardCount: .priority))
+                            .onTapGesture { selectedCard = .priority; selectedSegment = "Low" }
+                        
+                        
+                    }
+                    HStack(spacing: 15) {
+                        SegmentsCard(icon: "hourglass.bottomhalf.fill", title: "Today", count: viewModel.taskCount(cardCount: .today))
+                            .onTapGesture { selectedCard = .today; selectedSegment = "Today's Tasks" }
+                        
+                        SegmentsCard(icon: "flag.fill", title: "Over Due", count: viewModel.taskCount(cardCount: .overdue))
+                            .onTapGesture { selectedCard = .overdue; selectedSegment = "Over Due" }
+                    }
+                }
+                .navigationTitle("Segments")
+                
+                Text("Tasks")
+                    .font(.custom("TrebuchetMS", size: 35))
+                    .bold()
+                    .frame(alignment: .leading)
+                
+                if let selectedCard, !selectedCard.options.isEmpty{
+                    Picker("Select", selection: $selectedSegment){
+                        ForEach(selectedCard.options, id: \.self){ option in // id: \.self provides key path since cardType doesn't conform to Identifialble
+                            Text(option).tag(option)
                         }
                     }
-                    .padding(.vertical)
+                    .pickerStyle(.segmented)
                 }
-                .frame(maxHeight: 500)
-
+                VStack {
+                    ScrollView {
+                        LazyVStack(spacing: 13) {
+                            ForEach(viewModel.filteredTasks(selectedCard: selectedCard, selectedSegment: selectedSegment)) { task in
+                                TaskCardView(task: task, viewModel: viewModel)
+                                    .onTapGesture{
+                                        selectedTask = task
+                                    }
+                            }
+                        }
+                        .padding(.vertical)
+                    }
+                    .frame(maxHeight: 500)
+                    
+                }
+                //Spacer()
             }
-            //Spacer()
-        }
-        .padding()
-        .sheet(isPresented: $showAddTaskSheet) {
-                  AddTaskSheetView(viewModel: viewModel)
-              }
-        .sheet(item: $selectedTask) { task in // now selectedTask is a trigger
-            AddTaskSheetView(viewModel: viewModel, taskToEdit: task)
+            .padding()
+            .sheet(isPresented: $showAddTaskSheet) {
+                AddTaskSheetView(viewModel: viewModel)
+            }
+            .sheet(item: $selectedTask) { task in // now selectedTask is a trigger
+                AddTaskSheetView(viewModel: viewModel, taskToEdit: task)
+            }
         }
     }
 }

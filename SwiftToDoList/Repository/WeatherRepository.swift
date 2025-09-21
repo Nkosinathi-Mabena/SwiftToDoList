@@ -9,14 +9,14 @@ import Foundation
 import CoreLocation
 
 protocol WeatherRepositoryProtocol {
-    func fetchWeather(lat: Double, lon: Double) async throws -> (Weather, [Forecast])
+    func fetchWeather(lat: Double, lon: Double) async throws -> (Weather, [Forecast],[HourlyForecast])
 }
 
 final class WeatherRepository: WeatherRepositoryProtocol {
     
     private let baseURLString = "https://api.weatherapi.com/v1"
     
-    func fetchWeather(lat: Double, lon: Double) async throws -> (Weather, [Forecast]) {
+    func fetchWeather(lat: Double, lon: Double) async throws -> (Weather, [Forecast], [HourlyForecast]) {
         let urlString = "\(baseURLString)/forecast.json?key=\(APIConfig.apiKey)&q=\(lat),\(lon)&days=3&aqi=no&alerts=no"
         guard let url = URL(string: urlString) else { throw URLError(.badURL) }
         
@@ -36,7 +36,10 @@ final class WeatherRepository: WeatherRepositoryProtocol {
         }
         
         let forecastDays = decoded.toForecast()
+        let hourlyForecast = decoded.toHourlyForecast()   
+
         
-        return (todayWeather, forecastDays)
+        return (todayWeather, forecastDays, hourlyForecast)
+        
     }
 }

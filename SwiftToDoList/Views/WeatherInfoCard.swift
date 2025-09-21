@@ -23,14 +23,14 @@ struct WeatherInfoCard: View {
                     .font(.system(size: 30))
                 
                 Text(location)
+                    .font(.custom("TrebuchetMS", size: 40))
                     .font(.title)
                     .bold()
-                
+
                 Text(date)
-                    .font(.subheadline)
+                    .font(.custom("TrebuchetMS", size: 20))
                     .bold()
             }
-            .padding()
             
             AsyncImage(url: URL(string: icon)) { phase in
                 switch phase {
@@ -41,7 +41,7 @@ struct WeatherInfoCard: View {
                     image
                         .resizable()
                         .scaledToFit()
-                        .frame(height: UIScreen.main.bounds.height * 0.2)
+                        .frame(height: UIScreen.main.bounds.height * 0.12)
                 case .failure:
                     Image(systemName: "questionmark.circle")
                         .resizable()
@@ -53,18 +53,32 @@ struct WeatherInfoCard: View {
             }
             
             Text(temperature)
-                .font(.system(size: 50))
+                .font(.custom("TrebuchetMS", size: 45))
                 .bold()
             
             Text(description)
+                .font(.custom("TrebuchetMS", size: 20))
                 .font(.title2)
             
             HStack(spacing: 60) {
-                Text("Sunrise: ") + Text(sunrise).bold()
-                Text("Sunset: ") + Text(sunset).bold()
+                Text("Sunrise: ").font(.custom("TrebuchetMS", size: 20)).bold() + Text(sunrise).font(.custom("TrebuchetMS", size: 18)).bold()
+
+                Text("Sunset: ").font(.custom("TrebuchetMS", size: 20)).bold() + Text(sunset).font(.custom("TrebuchetMS", size: 18)).bold()
             }
         }
     }
 }
 
+
+#Preview{
+    WeatherInfoCard(
+        location: "Johannesburg",
+        icon: "https://cdn.weatherapi.com/weather/64x64/day/116.png" ,
+        temperature: "22°C",
+        description: "Partly Cloudly",
+        date: "18 Sep 2025",
+        sunrise: "05:30",
+        sunset: "17:43"
+    )
+}
 

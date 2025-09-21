@@ -30,6 +30,14 @@ struct ForecastResponse: Codable {
         let dateEpoch: TimeInterval
         let day: Day
         let astro: Astro
+        let hour:[Hourly]
+        
+    }
+    
+    struct Hourly:Codable{
+        let timeEpoch:TimeInterval
+        let tempC: Double
+        let condition: Condition
     }
     
     struct Day: Codable {
@@ -83,6 +91,23 @@ struct ForecastResponse: Codable {
             sunset: parseTime(today.astro.sunset),
             icon: "https:\(current.condition.icon)"
         )
+    }
+    
+    func toHourlyForecast(for date:Date = Date()) -> [HourlyForecast]{
+        guard let today = forecast.forecastday.first(where: {
+            Calendar.current.isDate(Date(timeIntervalSince1970: $0.dateEpoch), inSameDayAs: date)
+        }) else{
+            return []
+        }
+        
+        return today.hour.map{ hour in
+            HourlyForecast(
+                temperature: hour.tempC,
+                description: hour.condition.text,
+                time: Date(timeIntervalSince1970: hour.timeEpoch),
+                icon: "https:\(hour.condition.icon)"
+            )
+        }
     }
     
     private func parseTime(_ time: String) -> Date { //reading strings into Dates

@@ -19,5 +19,14 @@ func formattedTime(_ date: Date) -> String { // printing Dates as strings.
     return formatter.string(from: date)
 }
 
+func hourLabel(for date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "ha"
+    return formatter.string(from: date)
+}
 
-
+func dayLabel(for date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E"
+    return formatter.string(from: date)
+}

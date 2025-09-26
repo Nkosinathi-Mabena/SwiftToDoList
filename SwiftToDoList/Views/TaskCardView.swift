@@ -32,7 +32,7 @@ struct TaskCardView: View {
                 Text(task.description)
                     .font(.custom("TrebuchetMS", size: 16))
                     .bold()
-                Text(DateFormatter.localizedString(from: task.dueDate, dateStyle: .medium, timeStyle: .none))
+                Text("Due Date: " + DateFormatter.localizedString(from: task.dueDate, dateStyle: .medium, timeStyle: .none))
                     .font(.custom("TrebuchetMS", size: 13))
                     .bold()
                 
@@ -50,8 +50,12 @@ struct TaskCardView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color(.systemGray2).opacity(0.4))
-        .cornerRadius(12)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(Color.white.opacity(0.2), lineWidth: 1)
+        )
+        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 6)
     }
 }
 

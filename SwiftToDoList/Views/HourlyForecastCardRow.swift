@@ -28,8 +28,12 @@ struct HourlyForecastCardRow: View {
                     }
                     .padding(.horizontal,20)
                     .padding(.vertical,15)
-                    .background(Color(.systemGray6).opacity(0.4))
-                    .cornerRadius(20)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                    )
+                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 6)
                 }
             }
             .padding(.horizontal)

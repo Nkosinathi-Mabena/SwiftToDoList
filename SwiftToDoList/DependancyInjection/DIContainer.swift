@@ -41,6 +41,17 @@ class DIContainer {
             return WeatherViewModel(repository: repository, locationManager: locationManager)
         }
         
+        container.register(WeatherViewModeling.self) { resolver in
+            let repository = resolver.resolve(WeatherRepositoryProtocol.self)!
+            let locationManager = resolver.resolve(LocationManager.self)!
+            return WeatherViewModel(repository: repository, locationManager: locationManager)
+        }
+        
+        // Register mock implementation with a specific name for testing
+        container.register(WeatherViewModeling.self, name: "mock") { _ in
+            MockWeatherViewModel()
+        }
+        
         container.register(TaskViewModel.self) { resolver in
             let repository = resolver.resolve(TaskRepositoryProtocol.self)!
             return TaskViewModel(repository: repository)
@@ -56,9 +67,13 @@ class DIContainer {
         return container.resolve(type, name: name)
     }
     
-    // Convenience methods still not sure 
-    func resolveWeatherViewModel() -> WeatherViewModel {
-        return container.resolve(WeatherViewModel.self)!
+    // Convenience methods still not sure
+    func resolveWeatherViewModel() -> any WeatherViewModeling {
+        return container.resolve(WeatherViewModeling.self)!
+    }
+    
+    func resolveMockWeatherViewModel() -> any WeatherViewModeling {
+        return container.resolve(WeatherViewModeling.self, name: "mock")!
     }
     
     func resolveTaskViewModel() -> TaskViewModel {

@@ -11,14 +11,14 @@ struct TabBarView: View{
     
     var body: some View{
         TabView(){
-            ToDoView()
+            ToDoView(viewModel:DIContainer.shared.resolveTaskViewModel())
                 .tabItem{
                     Image(systemName: "doc.plaintext")
                     Text("Tasks")
                 }
                 .tag(0)
             
-            WeatherView()
+            WeatherView(viewModel: DIContainer.shared.resolveWeatherViewModel() as! WeatherViewModel)
                 .tabItem{
                     Image(systemName: "cloud.drizzle.fill")
                     Text("Weather")

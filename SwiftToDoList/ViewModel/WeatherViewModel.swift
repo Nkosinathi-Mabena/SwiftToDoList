@@ -14,7 +14,7 @@ enum ForecastViewType:String, CaseIterable{
     case hourly = "Hourly"
 }
 
-final class WeatherViewModel: ObservableObject {
+final class WeatherViewModel: WeatherViewModeling {
     @Published var currentWeather: Weather?
     @Published var forecast: [Forecast] = []
     @Published var isLoading = false

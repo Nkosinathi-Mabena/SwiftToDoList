@@ -7,36 +7,36 @@
 
 import SwiftUI
 
-struct WeatherView: View {
-    @StateObject private var viewModel : WeatherViewModel
-    
-    init() {
-        _viewModel = StateObject(wrappedValue: DIContainer.shared.resolveWeatherViewModel())
-    }
-    
+struct WeatherView<ViewModel: WeatherViewModeling & ObservableObject>: View {
+    @ObservedObject var viewModel: ViewModel
+
     var body: some View {
-        ZStack(alignment: .top) {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.53, green: 0.61, blue: 0.98),
-                    Color(red: 0.35, green: 0.71, blue: 0.95)
-                ]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+        ZStack(alignment: .leading) {
+            Image("afternoon")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             
             VStack(spacing: 20) {
                 if let weather = viewModel.currentWeather {
-                    WeatherInfoCard(
-                        location: weather.location,
-                        icon: weather.icon,
-                        temperature: "\(Int(weather.temperature))°C",
-                        description: weather.description,
-                        date: formattedDate(weather.date),
-                        sunrise: formattedTime(weather.sunrise),
-                        sunset: formattedTime(weather.sunset)
+                    VStack(spacing: 20) {
+                        WeatherInfoCard(
+                            location: weather.location,
+                            icon: weather.icon,
+                            temperature: "\(Int(weather.temperature))°C",
+                            description: weather.description,
+                            date: formattedDate(weather.date),
+                            sunrise: formattedTime(weather.sunrise),
+                            sunset: formattedTime(weather.sunset)
+                        )
+                    }
+                    .padding()
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .stroke(Color.white.opacity(0.2), lineWidth: 1)
                     )
+                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 6)
                 } else if viewModel.isLoading {
                     ProgressView("Loading weather...")
                 } else if let error = viewModel.errorMessage {
@@ -73,6 +73,7 @@ struct WeatherView: View {
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-            WeatherView()
+        WeatherView(viewModel: DIContainer.shared.resolveMockWeatherViewModel() as! MockWeatherViewModel)
     }
 }
+

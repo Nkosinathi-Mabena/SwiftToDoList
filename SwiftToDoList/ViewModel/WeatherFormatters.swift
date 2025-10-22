@@ -30,3 +30,16 @@ func dayLabel(for date: Date) -> String {
     formatter.dateFormat = "E"
     return formatter.string(from: date)
 }
+
+var backgroundImageForTimeOfDay: String {
+    let hour = Calendar.current.component(.hour, from: Date())
+    
+    switch hour {
+    case 6..<12:
+        return "sunrise"
+    case 12..<18:
+        return "afternoon"
+    default:
+        return "night"
+    }
+}

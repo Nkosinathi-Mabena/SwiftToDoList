@@ -28,7 +28,9 @@ class MockWeatherViewModel: WeatherViewModeling {
             date: Date(),
             sunrise: Calendar.current.date(bySettingHour: 6, minute: 30, second: 0, of: Date()) ?? Date(),
             sunset: Calendar.current.date(bySettingHour: 18, minute: 45, second: 0, of: Date()) ?? Date(),
-            icon: "https://cdn.weatherapi.com/weather/64x64/day/116.png"
+            icon: "https://cdn.weatherapi.com/weather/64x64/day/116.png",
+            highTemp: 28.0,
+            lowTemp: 16.0
         )
         
         let calendar = Calendar.current
@@ -72,7 +74,9 @@ class MockWeatherViewModel: WeatherViewModeling {
                     date: old.date,
                     sunrise: old.sunrise,
                     sunset: old.sunset,
-                    icon: old.icon
+                    icon: old.icon,
+                    highTemp: Double.random(in: 25...32),
+                    lowTemp: Double.random(in: 12...20)
                 )
             }
             isLoading = false

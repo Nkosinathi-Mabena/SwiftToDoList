@@ -21,9 +21,7 @@ struct ToDoView: View {
             Image("wood")
                 .resizable()
                 .ignoresSafeArea()
-            
-               
-            
+         
             VStack(alignment: .leading, spacing: 10) {
                 
                 HStack {

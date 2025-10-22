@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View{
-    
+
     var body: some View{
         TabView(){
             ToDoView(viewModel:DIContainer.shared.resolveTaskViewModel())
@@ -24,6 +24,13 @@ struct TabBarView: View{
                     Text("Weather")
                 }
                 .tag(1)
+            
+            NotificationSettingsView(viewModel: DIContainer.shared.resolveTaskViewModel())
+                .tabItem{
+                    Image(systemName: "bell.fill")
+                    Text("Settings")
+                }
+                .tag(2)
         }
     }
 }

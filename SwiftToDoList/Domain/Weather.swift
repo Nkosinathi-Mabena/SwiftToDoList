@@ -15,6 +15,8 @@ struct Weather{
     let sunrise: Date
     let sunset: Date
     let icon: String
+    let highTemp: Double
+    let lowTemp: Double
 }
 
 struct Forecast: Identifiable {

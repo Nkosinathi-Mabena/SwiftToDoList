@@ -89,7 +89,9 @@ struct ForecastResponse: Codable {
             date: Date(timeIntervalSince1970: current.lastUpdatedEpoch),
             sunrise: parseTime(today.astro.sunrise),
             sunset: parseTime(today.astro.sunset),
-            icon: "https:\(current.condition.icon)"
+            icon: "https:\(current.condition.icon)",
+            highTemp: today.day.maxtempC,
+            lowTemp: today.day.mintempC
         )
     }
     

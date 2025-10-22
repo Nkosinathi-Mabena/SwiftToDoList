@@ -9,10 +9,24 @@ import SwiftUI
 
 @main
 struct SwiftToDoListApp: App {
+    @StateObject private var taskViewModel = DIContainer.shared.resolveTaskViewModel()
+    
     var body: some Scene {
         WindowGroup{
             TabBarView()
                 .preferredColorScheme(.dark)
+                .onAppear {
+                    setupNotifications()
+                }
+        }
+    }
+    
+    private func setupNotifications() {
+        Task {
+            let permissionGranted = await taskViewModel.requestNotificationPermission()
+            if permissionGranted {
+                taskViewModel.scheduleDailyReminder()
+            }
         }
     }
 }

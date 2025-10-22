@@ -9,29 +9,19 @@ import SwiftUI
 
 struct ToDoView: View {
     
-    @StateObject private var viewModel:TaskViewModel
+    @StateObject var viewModel:TaskViewModel
     @State private var selectedCard: CardType? = .tasks
     @State private var selectedSegment: String = "Incompleted"
     @State private var isTaskChecked = false
     @State private var showAddTaskSheet = false
     @State var selectedTask: Tasks?
-    
-    init(repository: TaskRepositoryProtocol) {
-            _viewModel = StateObject(wrappedValue: TaskViewModel(repository: repository)) // this will create the viewmodel and pass the repository it received
-        }
             
     var body: some View {
-        ZStack(alignment: .top) {
-            // Sky blue gradient background
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.53, green: 0.61, blue: 0.98), // Light sky blue
-                    Color(red: 0.15, green: 0.1, blue: 0.5)  // Deeper sky blue
-                ]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+        ZStack(alignment: .leading) {
+            Image("wood")
+                .resizable()
+                .ignoresSafeArea()
+         
             VStack(alignment: .leading, spacing: 10) {
                 
                 HStack {
@@ -112,6 +102,6 @@ struct ToDoView: View {
 
 struct ToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        ToDoView(repository: TaskRepository())
+        ToDoView(viewModel: DIContainer.shared.resolveTaskViewModel())
     }
 }

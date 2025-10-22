@@ -7,71 +7,74 @@
 
 import SwiftUI
 
-struct WeatherView: View {
-    @StateObject private var viewModel = WeatherViewModel(
-        repository: WeatherRepository(),
-        locationManager: LocationManager()
-    )
-    
+struct WeatherView<ViewModel: WeatherViewModeling & ObservableObject>: View {
+    @ObservedObject var viewModel: ViewModel
+
     var body: some View {
-        ZStack(alignment: .top) {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.53, green: 0.61, blue: 0.98),
-                    Color(red: 0.35, green: 0.71, blue: 0.95)
-                ]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+        ZStack(alignment: .leading) {
+            Image(backgroundImageForTimeOfDay)
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+                .opacity(0.6)
             
-            VStack(spacing: 20) {
-                if let weather = viewModel.currentWeather {
-                    WeatherInfoCard(
-                        location: weather.location,
-                        icon: weather.icon,
-                        temperature: "\(Int(weather.temperature))°C",
-                        description: weather.description,
-                        date: formattedDate(weather.date),
-                        sunrise: formattedTime(weather.sunrise),
-                        sunset: formattedTime(weather.sunset)
-                    )
-                } else if viewModel.isLoading {
-                    ProgressView("Loading weather...")
-                } else if let error = viewModel.errorMessage {
-                    Text("Error: \(error)")
-                        .foregroundColor(.red)
-                } else {
-                    Text("No weather data available")
-                }
-                
-                Picker("View Type", selection: $viewModel.selectedView){
-                    ForEach(ForecastViewType.allCases, id: \.self){ type in
-                        Text(type.rawValue).tag(type)
+            ScrollView {
+                VStack(spacing: 5) {
+                    if let weather = viewModel.currentWeather {
+                        VStack(spacing: 20) {
+                            WeatherInfoCard(
+                                location: weather.location,
+                                icon: weather.icon,
+                                temperature: "\(Int(weather.temperature))°C",
+                                description: weather.description,
+                                date: formattedDate(weather.date),
+                                sunrise: formattedTime(weather.sunrise),
+                                sunset: formattedTime(weather.sunset),
+                                highTemp: "\(Int(weather.highTemp))°C",
+                                lowTemp: "\(Int(weather.lowTemp))°C"
+                            )
+                        }
+                        .padding()
+                      
+                    } else if viewModel.isLoading {
+                        ProgressView("Loading weather...")
+                    } else if let error = viewModel.errorMessage {
+                        Text("Error: \(error)")
+                            .foregroundColor(.red)
+                    } else {
+                        Text("No weather data available")
+                    }
+                    
+                    Picker("View Type", selection: $viewModel.selectedView){
+                        ForEach(ForecastViewType.allCases, id: \.self){ type in
+                            Text(type.rawValue).tag(type)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal)
+                    
+                    switch viewModel.selectedView{
+                    case .daily:
+                        ForecastCardRow(forecasts: viewModel.forecast)
+                            .padding(.bottom,12)
+                    case .hourly:
+                        HourlyForecastCardRow(hourlyForecast: viewModel.hourlyForecast)
+                            .padding(.bottom,12)
                     }
                 }
-                .pickerStyle(.segmented)
+                .padding(.top, 1)
                 .padding(.horizontal)
-                
-                switch viewModel.selectedView{
-                case .daily:
-                    ForecastCardRow(forecasts: viewModel.forecast)
-                        .padding(.bottom,12)
-                case .hourly:
-                    HourlyForecastCardRow(hourlyForecast: viewModel.hourlyForecast)
-                        .padding(.bottom,12)
-                }
+                .padding(.bottom, 100)
             }
-            .padding(.top,70)
-            .padding(.horizontal)
+            .ignoresSafeArea(.container, edges: .bottom) 
         }
-        
     }
 }
 
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-            WeatherView()
+        WeatherView(viewModel: DIContainer.shared.resolveMockWeatherViewModel() as! MockWeatherViewModel)
     }
 }
+

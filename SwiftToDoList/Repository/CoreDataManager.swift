@@ -16,6 +16,14 @@ final class CoreDataManager{
     
     private init(){
         persistentContainer = NSPersistentContainer(name: "TaskEntity")
+        
+        // Configure for App Groups if available
+        if let appGroupContainerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.NathiDev.SwiftToDoList") {
+            let storeURL = appGroupContainerURL.appendingPathComponent("TaskEntity.sqlite")
+            let storeDescription = NSPersistentStoreDescription(url: storeURL)
+            persistentContainer.persistentStoreDescriptions = [storeDescription]
+        }
+        
         persistentContainer.loadPersistentStores{ description, error in
             if let error = error {
                 fatalError("Core data store failed: \(error.localizedDescription)")

@@ -12,6 +12,7 @@ final class TaskViewModel: ObservableObject {
     @Published var tasks: [Tasks] = [] //used to update UI when tasks are changed
     
     private let repository: TaskRepositoryProtocol
+    private let notificationManager = NotificationManager.shared
     
     init(repository: TaskRepositoryProtocol){
         self.repository = repository
@@ -22,6 +23,14 @@ final class TaskViewModel: ObservableObject {
         let newTask = Tasks(id: UUID(), description: description, dueDate: dueDate, priority: priority, reminderEnabled: reminderEnabled, isCompleted: false)
         repository.addTask(newTask)
         fetchTasks()
+        
+        // Schedule notification if reminder is enabled
+        if reminderEnabled {
+            notificationManager.scheduleTaskReminder(for: newTask)
+        }
+        
+        // Update daily reminder content
+        notificationManager.updateDailyReminderContent()
     }
     
     func fetchTasks(){
@@ -29,13 +38,30 @@ final class TaskViewModel: ObservableObject {
     }
     
     func updateTask(task: Tasks){
+        // Cancel existing notification if it exists
+        notificationManager.cancelTaskReminder(for: task)
+        
         repository.updateTask(task)
         fetchTasks()
+        
+        // Schedule new notification if reminder is enabled
+        if task.reminderEnabled {
+            notificationManager.scheduleTaskReminder(for: task)
+        }
+        
+        // Update daily reminder content
+        notificationManager.updateDailyReminderContent()
     }
     
     func deleteTask(task:Tasks){
+        // Cancel notification for deleted task
+        notificationManager.cancelTaskReminder(for: task)
+        
         repository.deleteTask(task)
         fetchTasks()
+        
+        // Update daily reminder content
+        notificationManager.updateDailyReminderContent()
     }
     
     func toggleCompletion(task: Tasks) {
@@ -69,6 +95,32 @@ final class TaskViewModel: ObservableObject {
             return tasks.filter {
                 !$0.isCompleted && $0.dueDate < Calendar.current.startOfDay(for: Date())
             }.count
+        }
+    }
+    
+    // MARK: - Notification Management
+    
+    func requestNotificationPermission() async -> Bool {
+        return await notificationManager.requestNotificationPermission()
+    }
+    
+    func scheduleDailyReminder() {
+        notificationManager.scheduleDailyReminder()
+    }
+    
+    func cancelDailyReminder() {
+        notificationManager.cancelDailyReminder()
+    }
+    
+    func getTasksDueTodayWithReminders() -> [Tasks] {
+        let today = Calendar.current.startOfDay(for: Date())
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        
+        return tasks.filter { task in
+            task.reminderEnabled &&
+            !task.isCompleted &&
+            task.dueDate >= today &&
+            task.dueDate < tomorrow
         }
     }
 }

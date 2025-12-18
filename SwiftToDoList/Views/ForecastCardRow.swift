@@ -41,7 +41,6 @@ struct ForecastCardRow: View {
     }
 }
 
-
 struct ForecastCardRow_Previews: PreviewProvider {
     static var previews: some View {
         let mockForecasts = [

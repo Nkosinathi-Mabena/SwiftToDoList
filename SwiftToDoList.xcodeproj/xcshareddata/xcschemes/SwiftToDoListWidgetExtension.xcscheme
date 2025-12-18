@@ -44,6 +44,52 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F43C15F92EC600670021E596"
+               BuildableName = "SwiftToDoListTests.xctest"
+               BlueprintName = "SwiftToDoListTests"
+               ReferencedContainer = "container:SwiftToDoList.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F44521122ED87B030078BEB5"
+               BuildableName = "SwiftToDoListUITests.xctest"
+               BlueprintName = "SwiftToDoListUITests"
+               ReferencedContainer = "container:SwiftToDoList.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F423ED392EE73BEF00AE0288"
+               BuildableName = "SwiftToDoListWidgetTests.xctest"
+               BlueprintName = "SwiftToDoListWidgetTests"
+               ReferencedContainer = "container:SwiftToDoList.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F434DFBC2EE9697D00208021"
+               BuildableName = "SwiftToDoListWidgetUITests.xctest"
+               BlueprintName = "SwiftToDoListWidgetUITests"
+               ReferencedContainer = "container:SwiftToDoList.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -96,6 +142,11 @@
          <EnvironmentVariable
             key = "_XCWidgetKind"
             value = "TodaysTasksWidget"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "WEATHER_API_KEY"
+            value = "43905c745e8b4403990113115252306"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

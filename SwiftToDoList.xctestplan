@@ -1,0 +1,68 @@
+{
+  "configurations" : [
+    {
+      "id" : "E44609E4-85BD-42B5-8F7A-72C74CFEDCA7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:SwiftToDoList.xcodeproj",
+          "identifier" : "4BA644CA2E5F01790055DF0A",
+          "name" : "SwiftToDoList"
+        },
+        {
+          "containerPath" : "container:SwiftToDoList.xcodeproj",
+          "identifier" : "4BAD30962E896911002FB33A",
+          "name" : "SwiftToDoListWidgetExtension"
+        },
+        {
+          "containerPath" : "container:SwiftToDoList.xcodeproj",
+          "identifier" : "F43C15F92EC600670021E596",
+          "name" : "SwiftToDoListTests"
+        },
+        {
+          "containerPath" : "container:SwiftToDoList.xcodeproj",
+          "identifier" : "F44521122ED87B030078BEB5",
+          "name" : "SwiftToDoListUITests"
+        }
+      ]
+    },
+    "environmentVariableEntries" : [
+      {
+        "key" : "WEATHER_API_KEY",
+        "value" : "43905c745e8b4403990113115252306"
+      }
+    ],
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SwiftToDoList.xcodeproj",
+      "identifier" : "4BA644CA2E5F01790055DF0A",
+      "name" : "SwiftToDoList"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SwiftToDoList.xcodeproj",
+        "identifier" : "F43C15F92EC600670021E596",
+        "name" : "SwiftToDoListTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SwiftToDoList.xcodeproj",
+        "identifier" : "F44521122ED87B030078BEB5",
+        "name" : "SwiftToDoListUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

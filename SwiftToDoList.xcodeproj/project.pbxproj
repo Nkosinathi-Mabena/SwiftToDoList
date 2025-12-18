@@ -11,6 +11,18 @@
 		4BAD309C2E896912002FB33A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAD309B2E896912002FB33A /* SwiftUI.framework */; };
 		4BAD30AD2E896917002FB33A /* SwiftToDoListWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4BAD30972E896911002FB33A /* SwiftToDoListWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4BEF53DA2E8085E40083EFC8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4BEF53D92E8085E30083EFC8 /* Swinject */; };
+		F439D9932ED44D9E0042EF30 /* NotificationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439D9922ED44D8E0042EF30 /* NotificationManagerTests.swift */; };
+		F43C2A902ED0796000A8EB26 /* ForecastResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C2A8F2ED0794E00A8EB26 /* ForecastResponseTest.swift */; };
+		F43C2A952ED079A300A8EB26 /* WeatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C2A942ED0799900A8EB26 /* WeatherViewModelTests.swift */; };
+		F43C2A992ED07A9900A8EB26 /* WeatherFormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C2A982ED07A8C00A8EB26 /* WeatherFormattersTests.swift */; };
+		F43C2A9B2ED0889B00A8EB26 /* TaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C2A9A2ED0888D00A8EB26 /* TaskViewModelTests.swift */; };
+		F46D03CA2ECDAF61009F41BE /* WeatherResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D03C92ECDAF54009F41BE /* WeatherResponseTest.swift */; };
+		F46D03CC2ECDB3B7009F41BE /* HourlyForecastTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D03CB2ECDB3AA009F41BE /* HourlyForecastTest.swift */; };
+		F46D03D12ECDC74C009F41BE /* WeatherRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D03D02ECDC737009F41BE /* WeatherRepositoryTest.swift */; };
+		F4EBE9732EE6C0310071B096 /* WeatherIconMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EBE9722EE6C0310071B096 /* WeatherIconMapperTests.swift */; };
+		F4EBE9752EE6CE2D0071B096 /* WeatherRepositoryNetworkStubTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EBE9742EE6CE2D0071B096 /* WeatherRepositoryNetworkStubTest.swift */; };
+		F4EFDC9A2ECEFF300019E71F /* TaskRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFDC992ECEFF220019E71F /* TaskRepositoryTest.swift */; };
+		F4F80A502ECC6E2D00895E1A /* LocationManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F80A4F2ECC6E2200895E1A /* LocationManagerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,6 +32,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4BAD30962E896911002FB33A;
 			remoteInfo = SwiftToDoListWidgetExtension;
+		};
+		F423ED3E2EE73BEF00AE0288 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA644C32E5F01790055DF0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA644CA2E5F01790055DF0A;
+			remoteInfo = SwiftToDoList;
+		};
+		F43C15FE2EC600670021E596 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA644C32E5F01790055DF0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA644CA2E5F01790055DF0A;
+			remoteInfo = SwiftToDoList;
+		};
+		F44521192ED87B030078BEB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA644C32E5F01790055DF0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA644CA2E5F01790055DF0A;
+			remoteInfo = SwiftToDoList;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -43,6 +76,21 @@
 		4BAD30992E896911002FB33A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4BAD309B2E896912002FB33A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4BAD30B42E896B20002FB33A /* SwiftToDoListWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftToDoListWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F423ED3A2EE73BEF00AE0288 /* SwiftToDoListWidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftToDoListWidgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F439D9922ED44D8E0042EF30 /* NotificationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerTests.swift; sourceTree = "<group>"; };
+		F43C15FA2EC600670021E596 /* SwiftToDoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftToDoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F43C2A8F2ED0794E00A8EB26 /* ForecastResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponseTest.swift; sourceTree = "<group>"; };
+		F43C2A942ED0799900A8EB26 /* WeatherViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelTests.swift; sourceTree = "<group>"; };
+		F43C2A982ED07A8C00A8EB26 /* WeatherFormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFormattersTests.swift; sourceTree = "<group>"; };
+		F43C2A9A2ED0888D00A8EB26 /* TaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModelTests.swift; sourceTree = "<group>"; };
+		F44521132ED87B030078BEB5 /* SwiftToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46D03C92ECDAF54009F41BE /* WeatherResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponseTest.swift; sourceTree = "<group>"; };
+		F46D03CB2ECDB3AA009F41BE /* HourlyForecastTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastTest.swift; sourceTree = "<group>"; };
+		F46D03D02ECDC737009F41BE /* WeatherRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepositoryTest.swift; sourceTree = "<group>"; };
+		F4EBE9722EE6C0310071B096 /* WeatherIconMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconMapperTests.swift; sourceTree = "<group>"; };
+		F4EBE9742EE6CE2D0071B096 /* WeatherRepositoryNetworkStubTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepositoryNetworkStubTest.swift; sourceTree = "<group>"; };
+		F4EFDC992ECEFF220019E71F /* TaskRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepositoryTest.swift; sourceTree = "<group>"; };
+		F4F80A4F2ECC6E2200895E1A /* LocationManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -52,6 +100,14 @@
 				Info.plist,
 			);
 			target = 4BAD30962E896911002FB33A /* SwiftToDoListWidgetExtension */;
+		};
+		F423ED472EE73FC100AE0288 /* Exceptions for "SwiftToDoListWidget" folder in "SwiftToDoListWidgetTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TodayTaskWidget.swift,
+				WidgetCoreDataManager.swift,
+			);
+			target = F423ED392EE73BEF00AE0288 /* SwiftToDoListWidgetTests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -65,8 +121,19 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				4BAD30B12E896917002FB33A /* Exceptions for "SwiftToDoListWidget" folder in "SwiftToDoListWidgetExtension" target */,
+				F423ED472EE73FC100AE0288 /* Exceptions for "SwiftToDoListWidget" folder in "SwiftToDoListWidgetTests" target */,
 			);
 			path = SwiftToDoListWidget;
+			sourceTree = "<group>";
+		};
+		F423ED3B2EE73BEF00AE0288 /* SwiftToDoListWidgetTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SwiftToDoListWidgetTests;
+			sourceTree = "<group>";
+		};
+		F44521142ED87B030078BEB5 /* SwiftToDoListUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SwiftToDoListUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -89,14 +156,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F423ED372EE73BEF00AE0288 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F43C15F72EC600670021E596 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F44521102ED87B030078BEB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		4BA644C22E5F01790055DF0A = {
 			isa = PBXGroup;
 			children = (
+				F4F80A4A2ECC6DF100895E1A /* SwiftToDoListTests */,
 				4BAD30B42E896B20002FB33A /* SwiftToDoListWidgetExtension.entitlements */,
 				4BAD309D2E896912002FB33A /* SwiftToDoListWidget */,
+				F44521142ED87B030078BEB5 /* SwiftToDoListUITests */,
+				F423ED3B2EE73BEF00AE0288 /* SwiftToDoListWidgetTests */,
 				4BAD30982E896911002FB33A /* Frameworks */,
 				4BA644CC2E5F01790055DF0A /* Products */,
 				4BA6454F2E5F24390055DF0A /* SwiftToDoList */,
@@ -108,6 +199,9 @@
 			children = (
 				4BA644CB2E5F01790055DF0A /* SwiftToDoList.app */,
 				4BAD30972E896911002FB33A /* SwiftToDoListWidgetExtension.appex */,
+				F43C15FA2EC600670021E596 /* SwiftToDoListTests.xctest */,
+				F44521132ED87B030078BEB5 /* SwiftToDoListUITests.xctest */,
+				F423ED3A2EE73BEF00AE0288 /* SwiftToDoListWidgetTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +213,65 @@
 				4BAD309B2E896912002FB33A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F439D9912ED44D7D0042EF30 /* UtilitiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				F439D9922ED44D8E0042EF30 /* NotificationManagerTests.swift */,
+				F4EBE9722EE6C0310071B096 /* WeatherIconMapperTests.swift */,
+			);
+			path = UtilitiesTests;
+			sourceTree = "<group>";
+		};
+		F43C2A932ED0798B00A8EB26 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				F43C2A9A2ED0888D00A8EB26 /* TaskViewModelTests.swift */,
+				F43C2A982ED07A8C00A8EB26 /* WeatherFormattersTests.swift */,
+				F43C2A942ED0799900A8EB26 /* WeatherViewModelTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		F46D03CD2ECDBCF9009F41BE /* RepositoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4EFDC992ECEFF220019E71F /* TaskRepositoryTest.swift */,
+				F46D03D02ECDC737009F41BE /* WeatherRepositoryTest.swift */,
+				F4EBE9742EE6CE2D0071B096 /* WeatherRepositoryNetworkStubTest.swift */,
+			);
+			path = RepositoryTests;
+			sourceTree = "<group>";
+		};
+		F4F80A472ECC6DF100895E1A /* DataTransferObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				F43C2A8F2ED0794E00A8EB26 /* ForecastResponseTest.swift */,
+				F46D03CB2ECDB3AA009F41BE /* HourlyForecastTest.swift */,
+				F46D03C92ECDAF54009F41BE /* WeatherResponseTest.swift */,
+			);
+			path = DataTransferObjectTests;
+			sourceTree = "<group>";
+		};
+		F4F80A4A2ECC6DF100895E1A /* SwiftToDoListTests */ = {
+			isa = PBXGroup;
+			children = (
+				F439D9912ED44D7D0042EF30 /* UtilitiesTests */,
+				F43C2A932ED0798B00A8EB26 /* ViewModelTests */,
+				F46D03CD2ECDBCF9009F41BE /* RepositoryTests */,
+				F4F80A4E2ECC6E0600895E1A /* LocationServicesTests */,
+				F4F80A472ECC6DF100895E1A /* DataTransferObjectTests */,
+			);
+			path = SwiftToDoListTests;
+			sourceTree = "<group>";
+		};
+		F4F80A4E2ECC6E0600895E1A /* LocationServicesTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4F80A4F2ECC6E2200895E1A /* LocationManagerTest.swift */,
+			);
+			path = LocationServicesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +324,72 @@
 			productReference = 4BAD30972E896911002FB33A /* SwiftToDoListWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F423ED392EE73BEF00AE0288 /* SwiftToDoListWidgetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F423ED422EE73BEF00AE0288 /* Build configuration list for PBXNativeTarget "SwiftToDoListWidgetTests" */;
+			buildPhases = (
+				F423ED362EE73BEF00AE0288 /* Sources */,
+				F423ED372EE73BEF00AE0288 /* Frameworks */,
+				F423ED382EE73BEF00AE0288 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F423ED3F2EE73BEF00AE0288 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F423ED3B2EE73BEF00AE0288 /* SwiftToDoListWidgetTests */,
+			);
+			name = SwiftToDoListWidgetTests;
+			packageProductDependencies = (
+			);
+			productName = SwiftToDoListWidgetTests;
+			productReference = F423ED3A2EE73BEF00AE0288 /* SwiftToDoListWidgetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F43C15F92EC600670021E596 /* SwiftToDoListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F43C16002EC600670021E596 /* Build configuration list for PBXNativeTarget "SwiftToDoListTests" */;
+			buildPhases = (
+				F43C15F62EC600670021E596 /* Sources */,
+				F43C15F72EC600670021E596 /* Frameworks */,
+				F43C15F82EC600670021E596 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F43C15FF2EC600670021E596 /* PBXTargetDependency */,
+			);
+			name = SwiftToDoListTests;
+			packageProductDependencies = (
+			);
+			productName = SwiftToDoListTests;
+			productReference = F43C15FA2EC600670021E596 /* SwiftToDoListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F44521122ED87B030078BEB5 /* SwiftToDoListUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F445211B2ED87B030078BEB5 /* Build configuration list for PBXNativeTarget "SwiftToDoListUITests" */;
+			buildPhases = (
+				F445210F2ED87B030078BEB5 /* Sources */,
+				F44521102ED87B030078BEB5 /* Frameworks */,
+				F44521112ED87B030078BEB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F445211A2ED87B030078BEB5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F44521142ED87B030078BEB5 /* SwiftToDoListUITests */,
+			);
+			name = SwiftToDoListUITests;
+			packageProductDependencies = (
+			);
+			productName = SwiftToDoListUITests;
+			productReference = F44521132ED87B030078BEB5 /* SwiftToDoListUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,7 +397,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
+				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					4BA644CA2E5F01790055DF0A = {
@@ -186,6 +405,18 @@
 					};
 					4BAD30962E896911002FB33A = {
 						CreatedOnToolsVersion = 26.0.1;
+					};
+					F423ED392EE73BEF00AE0288 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = 4BA644CA2E5F01790055DF0A;
+					};
+					F43C15F92EC600670021E596 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = 4BA644CA2E5F01790055DF0A;
+					};
+					F44521122ED87B030078BEB5 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = 4BA644CA2E5F01790055DF0A;
 					};
 				};
 			};
@@ -208,6 +439,9 @@
 			targets = (
 				4BA644CA2E5F01790055DF0A /* SwiftToDoList */,
 				4BAD30962E896911002FB33A /* SwiftToDoListWidgetExtension */,
+				F43C15F92EC600670021E596 /* SwiftToDoListTests */,
+				F44521122ED87B030078BEB5 /* SwiftToDoListUITests */,
+				F423ED392EE73BEF00AE0288 /* SwiftToDoListWidgetTests */,
 			);
 		};
 /* End PBXProject section */
@@ -221,6 +455,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4BAD30952E896911002FB33A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F423ED382EE73BEF00AE0288 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F43C15F82EC600670021E596 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F44521112ED87B030078BEB5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -244,6 +499,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F423ED362EE73BEF00AE0288 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F43C15F62EC600670021E596 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F46D03CA2ECDAF61009F41BE /* WeatherResponseTest.swift in Sources */,
+				F46D03CC2ECDB3B7009F41BE /* HourlyForecastTest.swift in Sources */,
+				F43C2A952ED079A300A8EB26 /* WeatherViewModelTests.swift in Sources */,
+				F4F80A502ECC6E2D00895E1A /* LocationManagerTest.swift in Sources */,
+				F439D9932ED44D9E0042EF30 /* NotificationManagerTests.swift in Sources */,
+				F4EBE9752EE6CE2D0071B096 /* WeatherRepositoryNetworkStubTest.swift in Sources */,
+				F43C2A902ED0796000A8EB26 /* ForecastResponseTest.swift in Sources */,
+				F4EBE9732EE6C0310071B096 /* WeatherIconMapperTests.swift in Sources */,
+				F43C2A9B2ED0889B00A8EB26 /* TaskViewModelTests.swift in Sources */,
+				F43C2A992ED07A9900A8EB26 /* WeatherFormattersTests.swift in Sources */,
+				F46D03D12ECDC74C009F41BE /* WeatherRepositoryTest.swift in Sources */,
+				F4EFDC9A2ECEFF300019E71F /* TaskRepositoryTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F445210F2ED87B030078BEB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -251,6 +539,21 @@
 			isa = PBXTargetDependency;
 			target = 4BAD30962E896911002FB33A /* SwiftToDoListWidgetExtension */;
 			targetProxy = 4BAD30AB2E896917002FB33A /* PBXContainerItemProxy */;
+		};
+		F423ED3F2EE73BEF00AE0288 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BA644CA2E5F01790055DF0A /* SwiftToDoList */;
+			targetProxy = F423ED3E2EE73BEF00AE0288 /* PBXContainerItemProxy */;
+		};
+		F43C15FF2EC600670021E596 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BA644CA2E5F01790055DF0A /* SwiftToDoList */;
+			targetProxy = F43C15FE2EC600670021E596 /* PBXContainerItemProxy */;
+		};
+		F445211A2ED87B030078BEB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BA644CA2E5F01790055DF0A /* SwiftToDoList */;
+			targetProxy = F44521192ED87B030078BEB5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -384,7 +687,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftToDoList/Preview Content\"";
-				DEVELOPMENT_TEAM = 6GZ6M4KLVD;
+				DEVELOPMENT_TEAM = 9X6N8966X7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location Always and When In Use Usage Description";
@@ -392,15 +695,15 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NathiDev.SwiftToDoList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -418,7 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftToDoList/Preview Content\"";
-				DEVELOPMENT_TEAM = 6GZ6M4KLVD;
+				DEVELOPMENT_TEAM = 9X6N8966X7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location Always and When In Use Usage Description";
@@ -426,15 +729,15 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NathiDev.SwiftToDoList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -450,7 +753,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftToDoListWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6GZ6M4KLVD;
+				DEVELOPMENT_TEAM = 9X6N8966X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftToDoListWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SwiftToDoListWidget;
@@ -462,7 +765,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NathiDev.SwiftToDoList.SwiftToDoListWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftToDoList.SwiftToDoListWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -482,7 +785,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftToDoListWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6GZ6M4KLVD;
+				DEVELOPMENT_TEAM = 9X6N8966X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftToDoListWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SwiftToDoListWidget;
@@ -494,7 +797,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NathiDev.SwiftToDoList.SwiftToDoListWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftToDoList.SwiftToDoListWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -503,6 +806,130 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F423ED402EE73BEF00AE0288 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = private.SwiftToDoListWidgetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftToDoList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftToDoList";
+			};
+			name = Debug;
+		};
+		F423ED412EE73BEF00AE0288 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = private.SwiftToDoListWidgetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftToDoList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftToDoList";
+			};
+			name = Release;
+		};
+		F43C16012EC600670021E596 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = private.SwiftToDoListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftToDoList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftToDoList";
+			};
+			name = Debug;
+		};
+		F43C16022EC600670021E596 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = private.SwiftToDoListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftToDoList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftToDoList";
+			};
+			name = Release;
+		};
+		F445211C2ED87B030078BEB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = private.SwiftToDoListUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftToDoList;
+			};
+			name = Debug;
+		};
+		F445211D2ED87B030078BEB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = private.SwiftToDoListUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftToDoList;
 			};
 			name = Release;
 		};
@@ -532,6 +959,33 @@
 			buildConfigurations = (
 				4BAD30AF2E896917002FB33A /* Debug */,
 				4BAD30B02E896917002FB33A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F423ED422EE73BEF00AE0288 /* Build configuration list for PBXNativeTarget "SwiftToDoListWidgetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F423ED402EE73BEF00AE0288 /* Debug */,
+				F423ED412EE73BEF00AE0288 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F43C16002EC600670021E596 /* Build configuration list for PBXNativeTarget "SwiftToDoListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F43C16012EC600670021E596 /* Debug */,
+				F43C16022EC600670021E596 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F445211B2ED87B030078BEB5 /* Build configuration list for PBXNativeTarget "SwiftToDoListUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F445211C2ED87B030078BEB5 /* Debug */,
+				F445211D2ED87B030078BEB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

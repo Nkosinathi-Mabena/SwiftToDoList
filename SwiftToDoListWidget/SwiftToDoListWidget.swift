@@ -13,7 +13,7 @@ struct Provider: AppIntentTimelineProvider {
         SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: configuration)
     }
     
